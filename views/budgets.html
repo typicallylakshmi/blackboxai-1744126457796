@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Budget Dashboard</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <!-- Budget Summary Card -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Budget Overview</h2>
+        <canvas id="budgetChart" class="w-full h-64"></canvas>
+      </div>
+
+      <!-- Expense Tracking -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Add Expense</h2>
+        <form id="expenseForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Category</label>
+            <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+              <option>Catering</option>
+              <option>Venue</option>
+              <option>Marketing</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Amount</label>
+            <input type="number" step="0.01" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+          </div>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Add Expense</button>
+        </form>
+      </div>
+
+      <!-- Alerts -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Budget Alerts</h2>
+        <div id="alertsContainer" class="space-y-2">
+          <!-- Alerts will be populated here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Expense History -->
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-4">Expense History</h2>
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="expenseTable" class="bg-white divide-y divide-gray-200">
+          <!-- Expenses will be populated here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/js/budgets.js"></script>
+</body>
+</html>
